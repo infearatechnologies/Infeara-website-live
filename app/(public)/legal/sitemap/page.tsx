@@ -35,7 +35,7 @@ export default function SitemapPage() {
                             <li><Link href="/about" className="block text-muted-foreground hover:text-orange-600 hover:translate-x-1 transition-all">About Us</Link></li>
                             <li><Link href="/careers" className="block text-muted-foreground hover:text-orange-600 hover:translate-x-1 transition-all">Careers</Link></li>
                             <li><Link href="/contact" className="block text-muted-foreground hover:text-orange-600 hover:translate-x-1 transition-all">Contact Us</Link></li>
-                            <li><Link href="/locations/chennai" className="block text-muted-foreground hover:text-orange-600 hover:translate-x-1 transition-all">Locations: Chennai</Link></li>
+
                         </ul>
                     </div>
 
