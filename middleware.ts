@@ -1,7 +1,26 @@
-import { type NextRequest } from 'next/server'
+import { type NextRequest, NextResponse } from 'next/server'
 import { updateSession } from '@/lib/supabase/middleware'
 
 export async function middleware(request: NextRequest) {
+    if (process.env.NODE_ENV === 'production') {
+        const url = request.nextUrl.clone();
+        let shouldRedirect = false;
+
+        if (url.hostname === 'infeara.com') {
+            url.hostname = 'www.infeara.com';
+            shouldRedirect = true;
+        }
+
+        if (url.protocol === 'http:') {
+            url.protocol = 'https:';
+            shouldRedirect = true;
+        }
+
+        if (shouldRedirect) {
+            return NextResponse.redirect(url);
+        }
+    }
+
     const response = await updateSession(request);
 
     // OWASP Secure Headers
