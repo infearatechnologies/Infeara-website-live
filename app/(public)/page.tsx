@@ -19,15 +19,7 @@ export default function HomePage() {
             {/* 1. HERO SECTION */}
             <section className="relative w-full min-h-screen flex items-center justify-center pt-20 overflow-hidden bg-background">
                 {/* Background Image with Overlay */}
-                <div className="absolute inset-0 z-0">
-                    <Image
-                        src="/hero-bg.jpg"
-                        alt="Digital Infrastructure"
-                        fill
-                        className="object-cover opacity-20"
-                        priority
-                        quality={90}
-                    />
+                <div className="absolute inset-0 z-0 bg-background">
                     <div className="absolute inset-0 bg-gradient-to-b from-background/90 via-background/50 to-background"></div>
                 </div>
 
@@ -319,15 +311,7 @@ export default function HomePage() {
                 transition={{ duration: 0.8 }}
                 className="py-24 relative overflow-hidden"
             >
-                <div className="absolute inset-0 z-0">
-                    <Image
-                        src="/cta-bg.jpg"
-                        alt="CTA Background"
-                        fill
-                        className="object-cover"
-                        quality={90}
-                    />
-                    <div className="absolute inset-0 bg-primary/80 mix-blend-multiply"></div>
+                <div className="absolute inset-0 z-0 bg-primary">
                     <div className="absolute inset-0 bg-[url('/grid-pattern.svg')] opacity-10"></div>
                 </div>
                 <div className="container relative z-10 mx-auto px-4 text-center">

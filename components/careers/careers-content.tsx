@@ -728,15 +728,7 @@ export function CareersContent({ jobs }: CareersContentProps) {
                 transition={{ duration: 0.8 }}
                 className="py-24 relative overflow-hidden"
             >
-                <div className="absolute inset-0 z-0">
-                    <Image
-                        src="/cta-bg.jpg"
-                        alt="CTA Background"
-                        fill
-                        className="object-cover"
-                        quality={90}
-                    />
-                    <div className="absolute inset-0 bg-primary/80 mix-blend-multiply"></div>
+                <div className="absolute inset-0 z-0 bg-primary">
                     <div className="absolute inset-0 bg-[url('/grid-pattern.svg')] opacity-10"></div>
                 </div>
                 <div className="container relative z-10 mx-auto px-4 text-center">
