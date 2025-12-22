@@ -79,8 +79,19 @@ export function Footer() {
                     </div>
                 </div>
 
+                {/* Global SEO Content Block */}
+                <div className="mt-16 pt-8 border-t border-slate-200">
+                    <h4 className="text-sm font-semibold text-slate-800 mb-3">About Infeara Technologies - Your Trusted IT Partner in Chennai</h4>
+                    <p className="text-xs text-slate-500 leading-relaxed mb-4">
+                        Infeara Technologies is a premier IT Support, Outsourcing, and Consulting firm headquartered in Chennai, Tamil Nadu. We specialize in empowering businesses globally with robust, secure, and scalable technology infrastructure. Our comprehensive suite of services includes Managed IT Services, Cloud Solutions (AWS, Azure, Google Cloud), Business Network Infrastructure setup, and advanced Cybersecurity Audit & VAPT services. We are committed to driving digital transformation for enterprises of all sizes, from startups to Fortune 500 companies, by acting as a dedicated extension of their IT teams.
+                    </p>
+                    <p className="text-xs text-slate-500 leading-relaxed">
+                        With a "Security-First" approach, we ensure that your digital assets are protected against evolving cyber threats. Our team of certified professionals delivers proactive 24/7 monitoring, ensuring 99.9% uptime and business continuity. Whether you need an Offshore Development Center (ODC) in India, remote IT operations support, or strategic vCIO consulting, Infeara brings world-class expertise to your doorstep. Partner with us to leverage the power of AI & Automation, modernize your legacy systems, and achieve operational excellence.
+                    </p>
+                </div>
+
                 {/* Bottom Bar */}
-                <div className="mt-16 pt-8 border-t border-slate-200 text-center text-sm text-slate-500">
+                <div className="mt-8 pt-8 border-t border-slate-200 text-center text-sm text-slate-500">
                     © {new Date().getFullYear()} Infeara Technologies. All rights reserved.
                 </div>
             </div>

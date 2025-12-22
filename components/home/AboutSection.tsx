@@ -23,6 +23,9 @@ export default function AboutSection() {
                         <p className="text-lg text-muted-foreground leading-relaxed">
                             At Infeara, a leading IT Outsourcing and Consulting firm in Chennai, we combine cutting-edge technology with deep industry expertise to build resilient IT infrastructures. From cloud migrations to military-grade cybersecurity, we empower businesses to thrive in the digital age without fear.
                         </p>
+                        <p className="text-lg text-muted-foreground leading-relaxed">
+                            Our "Security-First" philosophy is embedded in every project we undertake. We don't just deploy solutions; we architect digital fortresses that protect your data and intellectual property. By integrating proactive threat hunting, automated compliance checks, and real-time monitoring into our core services, we ensure that your innovation never comes at the cost of security. Whether you are scaling an ODC or optimizing your local network, our Chennai-based team delivers global standards of excellence.
+                        </p>
 
                         <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                             {[
@@ -53,6 +56,7 @@ export default function AboutSection() {
                             src="/office-culture.png"
                             alt="Infeara IT Support Team in Chennai"
                             fill
+                            sizes="(max-width: 1024px) 100vw, 50vw"
                             className="object-cover transition-transform duration-700 group-hover:scale-105"
                         />
                         <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent"></div>

@@ -2,23 +2,29 @@ import { type NextRequest, NextResponse } from 'next/server'
 import { updateSession } from '@/lib/supabase/middleware'
 
 export async function middleware(request: NextRequest) {
-    if (process.env.NODE_ENV === 'production') {
-        const url = request.nextUrl.clone();
-        let shouldRedirect = false;
+    const url = request.nextUrl.clone();
 
-        if (url.hostname === 'infeara.com' || url.hostname === '216.198.79.1') {
-            url.hostname = 'www.infeara.com';
-            shouldRedirect = true;
-        }
+    // Skip redirects for localhost/dev environments
+    if (url.hostname === 'localhost' || url.hostname === '127.0.0.1') {
+        return await updateSession(request);
+    }
 
-        if (url.protocol === 'http:') {
-            url.protocol = 'https:';
-            shouldRedirect = true;
-        }
+    let shouldRedirect = false;
 
-        if (shouldRedirect) {
-            return NextResponse.redirect(url, 301);
-        }
+    // Redirect naked domain or IP to www
+    if (url.hostname === 'infeara.com' || url.hostname === '216.198.79.1') {
+        url.hostname = 'www.infeara.com';
+        shouldRedirect = true;
+    }
+
+    // Force HTTPS
+    if (url.protocol === 'http:') {
+        url.protocol = 'https:';
+        shouldRedirect = true;
+    }
+
+    if (shouldRedirect) {
+        return NextResponse.redirect(url, 301);
     }
 
     const response = await updateSession(request);
@@ -56,6 +62,10 @@ export async function middleware(request: NextRequest) {
 
 export const config = {
     matcher: [
-        '/((?!_next/static|_next/image|favicon.ico|.*\\.(?:svg|png|jpg|jpeg|gif|webp)$).*)',
+        // Match all request paths except for the ones starting with:
+        // - _next/static (static files)
+        // - _next/image (image optimization files)
+        // - favicon.ico (favicon file)
+        '/((?!_next/static|_next/image|favicon.ico).*)',
     ],
 }

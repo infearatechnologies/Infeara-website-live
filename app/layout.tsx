@@ -1,4 +1,4 @@
-import type { Metadata } from "next";
+import type { Metadata, Viewport } from "next";
 import { Inter, JetBrains_Mono, Sora } from "next/font/google";
 import "./globals.css";
 
@@ -18,19 +18,30 @@ const sora = Sora({
 });
 
 export const metadata: Metadata = {
-  title: "Infeara: IT Support, Security & Cloud Solutions in Chennai",
-  description: "Leading IT & Cloud Technology partner in Chennai. We provide expert Network Audits, Security, and Business Consulting for your Digital Transformation.",
+  title: "Infeara: IT Support Services, Security Audit & Cloud Chennai",
+  description: "Leading IT Support Services and Security Audit firm in Chennai. We provide expert Cloud Solutions and Business Consulting for your Digital Transformation.",
   icons: {
     icon: "/infeara-logo-final.png",
   },
+  keywords: ["IT Support Services", "IT Outsourcing", "IT Consulting", "Chennai", "Tamil Nadu", "Managed IT Services", "VAPT", "Cloud Solutions"],
   openGraph: {
-    title: "Infeara: IT Support, Security & Cloud Solutions in Chennai",
-    description: "Leading IT & Cloud Technology partner in Chennai. We provide expert Network Audits, Security, and Business Consulting for your Digital Transformation.",
+    title: "Infeara: IT Support Services, Security Audit & Cloud Chennai",
+    description: "Leading IT Support Services and Security Audit firm in Chennai. We provide expert Cloud Solutions and Business Consulting for your Digital Transformation.",
     url: "https://infeara.com",
     siteName: "Infeara Technologies",
     locale: "en_US",
     type: "website",
   },
+};
+
+export const viewport: Viewport = {
+  width: "device-width",
+  initialScale: 1,
+  maximumScale: 1,
+  themeColor: [
+    { media: "(prefers-color-scheme: light)", color: "#ffffff" },
+    { media: "(prefers-color-scheme: dark)", color: "#09090b" },
+  ],
 };
 
 import { Toaster } from "@/components/ui/toaster";
@@ -86,7 +97,7 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body
-        className={`${inter.variable} ${jetbrainsMono.variable} ${sora.variable} antialiased font-sans`}
+        className={`${inter.variable} ${jetbrainsMono.variable} ${sora.variable} antialiased font-sans overflow-x-hidden`}
       >
         <Script
           id="json-ld"
@@ -95,9 +106,9 @@ export default function RootLayout({
         />
         <Script
           src="https://www.googletagmanager.com/gtag/js?id=G-RCNB7MXXCQ"
-          strategy="afterInteractive"
+          strategy="lazyOnload"
         />
-        <Script id="google-analytics" strategy="afterInteractive">
+        <Script id="google-analytics" strategy="lazyOnload">
           {`
             window.dataLayer = window.dataLayer || [];
             function gtag(){dataLayer.push(arguments);}

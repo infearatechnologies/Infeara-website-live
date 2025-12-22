@@ -2,12 +2,11 @@
 
 import Link from "next/link";
 import Image from "next/image";
-import SectionWrapper from "@/components/layout/SectionWrapper";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
 import { Card, CardContent, CardHeader, CardTitle, CardDescription, CardFooter } from "@/components/ui/card";
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
-import { ArrowRight, Shield, Server, Cloud, Headphones, CheckCircle2, Star, Quote, Zap, Globe, Users, Clock, ShieldCheck, Building2, Network } from "lucide-react";
+import { ArrowRight, Server, Cloud, CheckCircle2, Star, Quote, Zap, Users, Clock, ShieldCheck, Building2, Network } from "lucide-react";
 import { motion } from "framer-motion";
 
 import AboutSection from "@/components/home/AboutSection";
@@ -165,6 +164,7 @@ export default function HomePage() {
                                         src={partner.logo}
                                         alt={partner.name}
                                         fill
+                                        sizes="(max-width: 768px) 128px, 160px"
                                         className="object-contain"
                                     />
                                 </div>
@@ -195,7 +195,7 @@ export default function HomePage() {
                         <ServiceCard
                             icon={Server}
                             title="Managed IT Services"
-                            description="Proactive 24/7 IT management and support to keep your business running smoothly."
+                            description="Proactive 24/7 IT outsourcing and support in Chennai to keep your business running smoothly."
                             href="/services/infrastructure/managed-it"
                         />
                         <ServiceCard
@@ -213,7 +213,7 @@ export default function HomePage() {
                         <ServiceCard
                             icon={Building2}
                             title="Offshore Development"
-                            description="Scale your engineering capacity with a dedicated offshore development center in India."
+                            description="Scale your engineering capacity with a dedicated offshore development center (ODC) in Chennai, India."
                             href="/services/turnkey/offshore-development"
                         />
                         <ServiceCard
@@ -252,7 +252,7 @@ export default function HomePage() {
                                 {
                                     quote: "Setting up our ODC in India was seamless. Infeara handled everything from recruitment to infrastructure, allowing us to focus on product.",
                                     author: "A Dubai-based SaaS Startup",
-                                    role: "Remote IT Operations",
+                                    role: "IT Outsourcing Partner",
                                     avatar: "/placeholder-startup.jpg",
                                     initials: "DS"
                                 },
@@ -272,8 +272,8 @@ export default function HomePage() {
                                 },
                                 {
                                     quote: "Healthcare requires 100% uptime. Infeara's 24/7 monitoring keeps our patient data secure and our systems always online.",
-                                    author: "A Multi-Specialty Hospital",
-                                    role: "Managed IT Services",
+                                    author: "A Multi-Specialty Hospital, Chennai",
+                                    role: "Managed IT Services in Chennai",
                                     avatar: "/placeholder-hospital.jpg",
                                     initials: "MH"
                                 },
@@ -285,7 +285,7 @@ export default function HomePage() {
                                     initials: "EL"
                                 }
                             ].map((testimonial, index) => (
-                                <div key={index} className="w-[400px]">
+                                <div key={index} className="w-[85vw] max-w-[400px]">
                                     <TestimonialCard
                                         quote={testimonial.quote}
                                         author={testimonial.author}
