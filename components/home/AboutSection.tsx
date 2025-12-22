@@ -14,19 +14,19 @@ export default function AboutSection() {
                     <div className="space-y-8 animate-in fade-in slide-in-from-left-8 duration-1000">
                         <div className="inline-flex items-center rounded-full border border-orange-200 bg-orange-50 text-orange-600 px-4 py-1.5 text-sm font-medium">
                             <span className="flex h-2 w-2 rounded-full bg-orange-600 mr-2"></span>
-                            Who We Are
+                            Premier IT Consulting
                         </div>
                         <h2 className="text-3xl md:text-5xl font-bold text-foreground leading-tight">
                             Innovating for a <br />
                             <span className="text-orange-600">Secure Digital Future</span>
                         </h2>
                         <p className="text-lg text-muted-foreground leading-relaxed">
-                            At Infeara, we combine cutting-edge technology with deep industry expertise to build resilient IT infrastructures. From cloud migrations to military-grade cybersecurity, we empower businesses to thrive in the digital age without fear.
+                            At Infeara, a leading IT Outsourcing and Consulting firm in Chennai, we combine cutting-edge technology with deep industry expertise to build resilient IT infrastructures. From cloud migrations to military-grade cybersecurity, we empower businesses to thrive in the digital age without fear.
                         </p>
 
                         <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                             {[
-                                "Global IT Support",
+                                "24/7 IT Support Services",
                                 "Certified Experts",
                                 "99.9% Uptime SLA",
                                 "Proactive Security"
@@ -51,7 +51,7 @@ export default function AboutSection() {
                     <div className="relative h-[500px] w-full rounded-3xl overflow-hidden shadow-2xl animate-in fade-in slide-in-from-right-8 duration-1000 delay-200 group">
                         <Image
                             src="/office-culture.png"
-                            alt="Infeara Team at Work"
+                            alt="Infeara IT Support Team in Chennai"
                             fill
                             className="object-cover transition-transform duration-700 group-hover:scale-105"
                         />

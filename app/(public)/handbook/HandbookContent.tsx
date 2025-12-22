@@ -1,6 +1,7 @@
 "use client";
 
 import HandbookLayout from "@/components/handbook/HandbookLayout";
+import Link from "next/link";
 import { AlertTriangle, ShieldCheck, Heart, BookOpen, Scale } from "lucide-react";
 import { motion } from "framer-motion";
 
@@ -188,7 +189,7 @@ export default function HandbookContent() {
                     </p>
                     <ul className="list-disc pl-6 space-y-2 text-sm text-red-700 dark:text-red-300">
                         <li><strong>Internal Complaints Committee (ICC):</strong> We have a constituted ICC headed by a senior female employee and an external member.</li>
-                        <li><strong>Reporting:</strong> Any incident can be reported directly to <code>posh@infeara.com</code>. All reports are treated with strict confidentiality.</li>
+                        <li><strong>Reporting:</strong> Any incident can be reported directly via our <Link href="/contact" className="text-primary hover:underline">Contact Page</Link>. All reports are treated with strict confidentiality.</li>
                         <li><strong>Redressal:</strong> The ICC will investigate and take appropriate action within 90 days as per the Act.</li>
                     </ul>
                 </div>

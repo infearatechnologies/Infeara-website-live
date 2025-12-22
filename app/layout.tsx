@@ -18,15 +18,14 @@ const sora = Sora({
 });
 
 export const metadata: Metadata = {
-  title: "Infeara Technologies - IT Support Services Outsourcing & Consulting in Chennai",
-  description: "Leading provider of IT Support Services, Outsourcing, and Consulting in Chennai, Tamil Nadu. We specialize in Enterprise IT Infrastructure, Security, and Digital Transformation.",
+  title: "Infeara: IT Support, Security & Cloud Solutions in Chennai",
+  description: "Leading IT & Cloud Technology partner in Chennai. We provide expert Network Audits, Security, and Business Consulting for your Digital Transformation.",
   icons: {
     icon: "/infeara-logo-final.png",
   },
-  keywords: ["IT Support Services", "IT Outsourcing", "IT Consulting", "Chennai", "Tamil Nadu", "Managed IT Services", "VAPT", "Cloud Solutions"],
   openGraph: {
-    title: "Infeara Technologies - IT Support Services Outsourcing & Consulting in Chennai",
-    description: "Expert IT Support, Outsourcing, and Consulting services in Chennai. Secure your business with our Next-Gen IT Infrastructure solutions.",
+    title: "Infeara: IT Support, Security & Cloud Solutions in Chennai",
+    description: "Leading IT & Cloud Technology partner in Chennai. We provide expert Network Audits, Security, and Business Consulting for your Digital Transformation.",
     url: "https://infeara.com",
     siteName: "Infeara Technologies",
     locale: "en_US",
@@ -52,7 +51,7 @@ export default function RootLayout({
     "@id": "https://infeara.com",
     "url": "https://infeara.com",
     "telephone": "+916381173289",
-    "email": "contact@infeara.com",
+
     "address": {
       "@type": "PostalAddress",
       "streetAddress": "Chennai",

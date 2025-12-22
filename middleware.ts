@@ -6,7 +6,7 @@ export async function middleware(request: NextRequest) {
         const url = request.nextUrl.clone();
         let shouldRedirect = false;
 
-        if (url.hostname === 'infeara.com') {
+        if (url.hostname === 'infeara.com' || url.hostname === '216.198.79.1') {
             url.hostname = 'www.infeara.com';
             shouldRedirect = true;
         }
@@ -17,7 +17,7 @@ export async function middleware(request: NextRequest) {
         }
 
         if (shouldRedirect) {
-            return NextResponse.redirect(url);
+            return NextResponse.redirect(url, 301);
         }
     }
 

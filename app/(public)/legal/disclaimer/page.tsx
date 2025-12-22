@@ -1,4 +1,5 @@
 import LegalPageLayout from "@/components/legal/LegalPageLayout";
+import Link from "next/link";
 
 export default function DisclaimerPage() {
     const tocItems = [
@@ -42,7 +43,7 @@ export default function DisclaimerPage() {
 
             <h2 id="contact-us">5. Contact Us</h2>
             <p>
-                If you have any questions about this Disclaimer, please contact us at <a href="mailto:contact@infeara.com">contact@infeara.com</a>.
+                If you have any questions about this Disclaimer, please contact us via our <Link href="/contact" className="text-primary hover:underline">Contact Page</Link>.
             </p>
         </LegalPageLayout>
     );

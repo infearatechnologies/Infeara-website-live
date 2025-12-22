@@ -118,7 +118,7 @@ export default function HandbookLayout({
                                     Reach out to the People Team for any clarifications.
                                 </p>
                                 <Link
-                                    href="mailto:people@infeara.com"
+                                    href="/contact"
                                     className="text-sm font-medium text-primary hover:underline"
                                 >
                                     Contact People Team &rarr;

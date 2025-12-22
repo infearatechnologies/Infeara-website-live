@@ -1,4 +1,5 @@
 import LegalPageLayout from "@/components/legal/LegalPageLayout";
+import Link from "next/link";
 
 export default function TermsOfServicePage() {
     const tocItems = [
@@ -54,7 +55,7 @@ export default function TermsOfServicePage() {
 
             <h2 id="contact-us">7. Contact Us</h2>
             <p>
-                If you have any questions about these Terms, please contact us at <a href="mailto:contact@infeara.com">contact@infeara.com</a>.
+                If you have any questions about these Terms, please contact us via our <Link href="/contact" className="text-primary hover:underline">Contact Page</Link>.
             </p>
         </LegalPageLayout>
     );

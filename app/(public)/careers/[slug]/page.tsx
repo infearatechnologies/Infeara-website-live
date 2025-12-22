@@ -148,9 +148,9 @@ export default async function JobPage({ params }: PageProps) {
                                 We'd love to hear from you. Send us your resume and a brief introduction telling us why you'd be a great fit.
                             </p>
                             <Button size="lg" className="text-lg px-8" asChild>
-                                <a href={`mailto:careers@infeara.com?subject=Application for ${job.title}`}>
+                                <Link href="/contact">
                                     Apply for this Position
-                                </a>
+                                </Link>
                             </Button>
                         </div>
                     </div>

@@ -11,6 +11,7 @@ import { ArrowRight, Shield, Server, Cloud, Headphones, CheckCircle2, Star, Quot
 import { motion } from "framer-motion";
 
 import AboutSection from "@/components/home/AboutSection";
+import FAQSection from "@/components/home/FAQSection";
 
 export default function HomePage() {
     return (
@@ -52,7 +53,7 @@ export default function HomePage() {
                             className="inline-flex items-center rounded-full border border-orange-200 bg-orange-500/10 px-4 py-1.5 text-sm font-medium text-orange-600 shadow-sm"
                         >
                             <span className="flex h-2 w-2 rounded-full bg-orange-500 mr-2 animate-pulse"></span>
-                            Next-Gen IT Solutions
+                            Top IT Support & Consulting
                         </motion.div>
 
                         {/* Headline */}
@@ -186,16 +187,16 @@ export default function HomePage() {
                 <div className="container mx-auto px-4 md:px-6">
                     <div className="text-center mb-16">
                         <Badge variant="outline" className="mb-4 border-orange-200 text-orange-600 bg-orange-500/10 px-4 py-1">Our Expertise</Badge>
-                        <h2 className="text-3xl md:text-5xl font-bold text-foreground mb-4">Comprehensive IT Solutions</h2>
+                        <h2 className="text-3xl md:text-5xl font-bold text-foreground mb-4">Comprehensive Technology & IT Solutions</h2>
                         <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
-                            End-to-end technology services tailored to your business needs.
+                            End-to-end IT Support, Outsourcing, and Consulting services tailored to your business needs.
                         </p>
                     </div>
 
                     <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
                         <ServiceCard
                             icon={ShieldCheck}
-                            title="VAPT Services"
+                            title="Security Audit & VAPT"
                             description="Comprehensive vulnerability assessment and penetration testing to secure your assets."
                             href="/services/audit-compliance/vapt"
                         />
@@ -225,7 +226,7 @@ export default function HomePage() {
                         />
                         <ServiceCard
                             icon={Network}
-                            title="Network Infrastructure"
+                            title="Business Network Infrastructure"
                             description="Design and implementation of robust, secure, and high-speed network architectures."
                             href="/services/infrastructure/network-infrastructure"
                         />
@@ -244,7 +245,7 @@ export default function HomePage() {
                 <div className="container mx-auto px-4 md:px-6">
                     <div className="text-center mb-16">
                         <h2 className="text-3xl md:text-5xl font-bold text-foreground mb-4">What Our Clients Say</h2>
-                        <p className="text-lg text-muted-foreground">Trusted by over 500+ businesses across the globe.</p>
+                        <p className="text-lg text-muted-foreground">Trusted IT Consultants for over 500+ businesses across the globe.</p>
                     </div>
                     <div className="relative w-full overflow-hidden">
                         <div className="flex w-max animate-scroll gap-8">
@@ -307,7 +308,10 @@ export default function HomePage() {
                 </div>
             </motion.section>
 
-            {/* 5. CTA SECTION */}
+            {/* 5. FAQ SECTION */}
+            <FAQSection />
+
+            {/* 6. CTA SECTION */}
             <motion.section
                 initial={{ opacity: 0 }}
                 whileInView={{ opacity: 1 }}

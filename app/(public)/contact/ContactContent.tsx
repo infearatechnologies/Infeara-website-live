@@ -270,9 +270,9 @@ export default function ContactContent() {
                                 <div className="grid gap-4">
                                     <ContactOption
                                         icon={Mail}
-                                        title="Email Support"
-                                        value="support@infeara.com"
-                                        href="mailto:support@infeara.com"
+                                        title="Send a Request"
+                                        value="Submit Inquiry"
+                                        href="#top"
                                     />
                                     <ContactOption
                                         icon={Phone}

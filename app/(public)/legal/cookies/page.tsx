@@ -1,4 +1,5 @@
 import LegalPageLayout from "@/components/legal/LegalPageLayout";
+import Link from "next/link";
 
 export default function CookiePolicyPage() {
     const tocItems = [
@@ -51,7 +52,7 @@ export default function CookiePolicyPage() {
 
             <h2 id="contact-us">6. Contact Us</h2>
             <p>
-                If you have any questions about our use of cookies or other technologies, please email us at <a href="mailto:contact@infeara.com">contact@infeara.com</a>.
+                If you have any questions about our use of cookies or other technologies, please email us via our <Link href="/contact" className="text-primary hover:underline">Contact Page</Link>.
             </p>
         </LegalPageLayout>
     );

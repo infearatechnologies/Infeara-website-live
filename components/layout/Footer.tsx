@@ -71,7 +71,9 @@ export function Footer() {
                             </li>
                             <li className="flex items-center gap-3">
                                 <Mail className="h-5 w-5 text-orange-600 shrink-0" />
-                                <span>contact@infeara.com</span>
+                                <Link href="/contact" className="hover:text-orange-600 transition-colors">
+                                    Contact Support
+                                </Link>
                             </li>
                         </ul>
                     </div>

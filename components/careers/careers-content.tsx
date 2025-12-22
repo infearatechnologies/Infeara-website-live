@@ -749,7 +749,7 @@ export function CareersContent({ jobs }: CareersContentProps) {
                             <Link href="#open-roles">View Open Roles</Link>
                         </Button>
                         <Button size="lg" variant="outline" className="h-16 px-10 text-lg border-primary-foreground text-primary-foreground hover:bg-primary-foreground hover:text-primary rounded-full font-bold transition-transform hover:scale-105 bg-transparent" asChild>
-                            <Link href="mailto:careers@infeara.com">Contact Us</Link>
+                            <Link href="/contact">Contact Us</Link>
                         </Button>
                     </div>
                 </div>
