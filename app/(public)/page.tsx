@@ -30,52 +30,35 @@ export default function HomePage() {
                 </div>
 
                 <div className="container relative z-10 mx-auto px-4 md:px-6 text-center">
-                    <motion.div
-                        initial={{ opacity: 0, y: 30 }}
-                        animate={{ opacity: 1, y: 0 }}
-                        transition={{ duration: 0.8, ease: "easeOut" }}
-                        className="flex flex-col items-center max-w-5xl mx-auto space-y-8"
-                    >
+                    <div className="flex flex-col items-center max-w-5xl mx-auto space-y-8">
                         {/* Badge */}
-                        <motion.div
-                            initial={{ opacity: 0, y: 20 }}
-                            animate={{ opacity: 1, y: 0 }}
-                            transition={{ delay: 0.2, duration: 0.5 }}
-                            className="inline-flex items-center rounded-full border border-orange-200 bg-orange-500/10 px-4 py-1.5 text-sm font-medium text-orange-600 shadow-sm"
+                        <div
+                            className="inline-flex items-center rounded-full border border-orange-200 bg-orange-500/10 px-4 py-1.5 text-sm font-medium text-orange-600 shadow-sm animate-in fade-in slide-in-from-bottom-4 duration-700"
                         >
                             <span className="flex h-2 w-2 rounded-full bg-orange-500 mr-2 animate-pulse"></span>
                             Top IT Support & Consulting
-                        </motion.div>
+                        </div>
 
                         {/* Headline */}
-                        <motion.h1
-                            initial={{ opacity: 0, y: 20 }}
-                            animate={{ opacity: 1, y: 0 }}
-                            transition={{ delay: 0.3, duration: 0.5 }}
-                            className="text-5xl font-bold tracking-tight sm:text-6xl md:text-7xl lg:text-8xl font-heading text-foreground"
+                        <h1
+                            className="text-5xl font-bold tracking-tight sm:text-6xl md:text-7xl lg:text-8xl font-heading text-foreground animate-in fade-in slide-in-from-bottom-8 duration-500"
                         >
                             Powering the <br />
                             <span className="text-transparent bg-clip-text bg-gradient-to-r from-primary via-orange-600 to-orange-500 animate-gradient-x">
                                 Digital Enterprise
                             </span>
-                        </motion.h1>
+                        </h1>
 
                         {/* Subheadline */}
-                        <motion.p
-                            initial={{ opacity: 0, y: 20 }}
-                            animate={{ opacity: 1, y: 0 }}
-                            transition={{ delay: 0.4, duration: 0.5 }}
-                            className="max-w-[800px] text-muted-foreground text-lg md:text-xl/relaxed lg:text-2xl/relaxed leading-relaxed"
+                        <p
+                            className="max-w-[800px] text-muted-foreground text-lg md:text-xl/relaxed lg:text-2xl/relaxed leading-relaxed animate-in fade-in slide-in-from-bottom-8 duration-500 delay-100"
                         >
                             Premier IT Support Services Outsourcing and Consulting in Chennai. From robust infrastructure to military-grade cybersecurity, we build the technology backbone that drives your business forward.
-                        </motion.p>
+                        </p>
 
                         {/* CTA Buttons */}
-                        <motion.div
-                            initial={{ opacity: 0, y: 20 }}
-                            animate={{ opacity: 1, y: 0 }}
-                            transition={{ delay: 0.5, duration: 0.5 }}
-                            className="flex flex-col sm:flex-row gap-4 w-full justify-center"
+                        <div
+                            className="flex flex-col sm:flex-row gap-4 w-full justify-center animate-in fade-in slide-in-from-bottom-8 duration-1000 delay-300"
                         >
                             <Button size="lg" className="h-14 px-8 text-lg bg-primary text-primary-foreground hover:bg-primary/90 rounded-full font-bold shadow-xl shadow-primary/20 transition-all hover:scale-105" asChild>
                                 <Link href="/contact">
@@ -87,14 +70,11 @@ export default function HomePage() {
                                     Explore Services
                                 </Link>
                             </Button>
-                        </motion.div>
+                        </div>
 
                         {/* Stats */}
-                        <motion.div
-                            initial={{ opacity: 0, y: 20 }}
-                            animate={{ opacity: 1, y: 0 }}
-                            transition={{ delay: 0.6, duration: 0.5 }}
-                            className="grid grid-cols-2 md:grid-cols-4 gap-8 pt-12 w-full max-w-4xl"
+                        <div
+                            className="grid grid-cols-2 md:grid-cols-4 gap-8 pt-12 w-full max-w-4xl animate-in fade-in slide-in-from-bottom-8 duration-1000 delay-500"
                         >
                             {[
                                 { label: "Years Experience", value: "2+", icon: Clock },
@@ -110,8 +90,8 @@ export default function HomePage() {
                                     <div className="text-sm text-muted-foreground font-medium">{stat.label}</div>
                                 </div>
                             ))}
-                        </motion.div>
-                    </motion.div>
+                        </div>
+                    </div>
                 </div>
             </section>
 
