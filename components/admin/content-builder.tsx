@@ -1,6 +1,6 @@
 "use client";
 
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useRef } from "react";
 import {
     DndContext,
     closestCenter,
@@ -33,7 +33,7 @@ export interface ContentBlock {
     id: string;
     type: BlockType;
     content?: string; // For paragraph text or image URL
-    level?: 1 | 2 | 3; // For headings
+    level?: 1 | 2 | 3 | 4 | 5; // For headings
     alt?: string; // For images
     caption?: string; // For images
     children?: ContentBlock[]; // Recursive structure if needed (kept simple for now)
@@ -102,7 +102,7 @@ function SortableBlock({
                             <div className="w-32 shrink-0">
                                 <Select
                                     value={String(block.level || 2)}
-                                    onValueChange={(val) => onUpdate(block.id, { level: parseInt(val) as 1 | 2 | 3 })}
+                                    onValueChange={(val) => onUpdate(block.id, { level: parseInt(val) as 1 | 2 | 3 | 4 | 5 })}
                                 >
                                     <SelectTrigger>
                                         <SelectValue placeholder="Level" />
@@ -111,6 +111,8 @@ function SortableBlock({
                                         <SelectItem value="1">H1</SelectItem>
                                         <SelectItem value="2">H2</SelectItem>
                                         <SelectItem value="3">H3</SelectItem>
+                                        <SelectItem value="4">H4</SelectItem>
+                                        <SelectItem value="5">H5</SelectItem>
                                     </SelectContent>
                                 </Select>
                             </div>
@@ -176,12 +178,12 @@ function SortableBlock({
 
 export function ContentBuilder({ initialContent, onChange }: ContentBuilderProps) {
     const [blocks, setBlocks] = useState<ContentBlock[]>([]);
+    const lastAddedIdRef = useRef<string | null>(null);
 
     // Initialize blocks from JSON structure
     useEffect(() => {
         if (initialContent?.root?.children) {
             // Transform existing JSON structure to flat block list if possible
-            // This assumes a specific structure. If it's raw text or different, we might need migration logic.
             const loadedBlocks = initialContent.root.children.map((child: any) => ({
                 id: Math.random().toString(36).substr(2, 9),
                 type: child.type || "paragraph",
@@ -232,6 +234,25 @@ export function ContentBuilder({ initialContent, onChange }: ContentBuilderProps
         onChange(newContent);
     }, [blocks, onChange]);
 
+    // Auto-scroll and focus when a new block is added
+    useEffect(() => {
+        if (lastAddedIdRef.current) {
+            const element = document.getElementById(`block-${lastAddedIdRef.current}`);
+            if (element) {
+                element.scrollIntoView({ behavior: "smooth", block: "center" });
+
+                // transform transition might interfere with scrolling/focus, small delay helps
+                setTimeout(() => {
+                    const input = element.querySelector("input, textarea") as HTMLElement;
+                    if (input) {
+                        input.focus();
+                    }
+                }, 100);
+            }
+            lastAddedIdRef.current = null;
+        }
+    }, [blocks]);
+
     const sensors = useSensors(
         useSensor(PointerSensor),
         useSensor(KeyboardSensor, {
@@ -258,7 +279,8 @@ export function ContentBuilder({ initialContent, onChange }: ContentBuilderProps
             content: "",
             level: type === "heading" ? 2 : undefined,
         };
-        setBlocks([...blocks, newBlock]);
+        lastAddedIdRef.current = newBlock.id;
+        setBlocks([...blocks, newBlock]); // Revert to append
     };
 
     const removeBlock = (id: string) => {
@@ -270,8 +292,8 @@ export function ContentBuilder({ initialContent, onChange }: ContentBuilderProps
     };
 
     return (
-        <div className="space-y-6">
-            <div className="flex gap-2 justify-center p-4 bg-secondary/20 rounded-lg border border-border border-dashed">
+        <div className="space-y-6 relative">
+            <div className="sticky top-0 z-20 flex gap-2 justify-center p-4 bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60 rounded-lg border border-border border-dashed shadow-sm">
                 <Button type="button" onClick={() => addBlock("heading")} variant="outline" size="sm" className="gap-2">
                     <Type className="h-4 w-4" /> Add Heading
                 </Button>
@@ -294,13 +316,14 @@ export function ContentBuilder({ initialContent, onChange }: ContentBuilderProps
                 >
                     <div className="space-y-4">
                         {blocks.map((block, index) => (
-                            <SortableBlock
-                                key={block.id}
-                                block={block}
-                                index={index}
-                                onRemove={removeBlock}
-                                onUpdate={updateBlock}
-                            />
+                            <div key={block.id} id={`block-${block.id}`}>
+                                <SortableBlock
+                                    block={block}
+                                    index={index}
+                                    onRemove={removeBlock}
+                                    onUpdate={updateBlock}
+                                />
+                            </div>
                         ))}
                     </div>
                 </SortableContext>

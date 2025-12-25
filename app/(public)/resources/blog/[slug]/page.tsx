@@ -46,7 +46,7 @@ export async function generateMetadata({ params }: PageProps) {
     if (!post) return { title: "Post Not Found" };
 
     return {
-        title: `${post.title || "Blog Post"} | Infeara Insights`,
+        title: `${post.title || "Blog Post"} | Infeara`,
         description: post.excerpt || "Read our latest insights.",
     };
 }
@@ -160,26 +160,7 @@ export default async function BlogPostPage({ params }: PageProps) {
                 )}
             </main>
 
-            {/* Clean Conclusion / Footer */}
-            <footer className="border-t border-border/40 py-16 bg-secondary/5">
-                <div className="container max-w-3xl mx-auto px-4 text-center">
-                    <h4 className="font-bold text-lg mb-6">Infeara Insights</h4>
-                    <div className="flex justify-center gap-6 mb-8">
-                        <Button variant="ghost" size="icon" className="rounded-full hover:bg-orange-50 hover:text-orange-600">
-                            <Linkedin className="h-5 w-5" />
-                        </Button>
-                        <Button variant="ghost" size="icon" className="rounded-full hover:bg-orange-50 hover:text-orange-600">
-                            <Twitter className="h-5 w-5" />
-                        </Button>
-                        <Button variant="ghost" size="icon" className="rounded-full hover:bg-orange-50 hover:text-orange-600">
-                            <Share2 className="h-5 w-5" />
-                        </Button>
-                    </div>
-                    <p className="text-muted-foreground text-sm">
-                        &copy; {new Date().getFullYear()} Infeara Technologies. All rights reserved.
-                    </p>
-                </div>
-            </footer>
+
         </article>
     );
 }
