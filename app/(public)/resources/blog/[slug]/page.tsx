@@ -33,11 +33,15 @@ export async function generateStaticParams() {
 export async function generateMetadata({ params }: PageProps) {
     const { slug } = await params;
     const supabase = await createClient();
-    const { data: post } = await supabase
+
+    // Use limit(1) instead of single() to handle duplicate slugs gracefully
+    const { data: posts } = await supabase
         .from("posts")
         .select("title, excerpt")
         .eq("slug", slug)
-        .single();
+        .limit(1);
+
+    const post = posts?.[0];
 
     if (!post) return { title: "Post Not Found" };
 
@@ -47,14 +51,30 @@ export async function generateMetadata({ params }: PageProps) {
     };
 }
 
+// Helper for safe date parsing
+const getSafeDate = (dateStr: string | null | undefined, fallbackDate: string | null | undefined): Date => {
+    const d1 = dateStr ? new Date(dateStr) : null;
+    if (d1 && !isNaN(d1.getTime())) return d1;
+
+    const d2 = fallbackDate ? new Date(fallbackDate) : null;
+    if (d2 && !isNaN(d2.getTime())) return d2;
+
+    return new Date(); // Fallback to now to prevent crash
+};
+
+
 export default async function BlogPostPage({ params }: PageProps) {
     const { slug } = await params;
     const supabase = await createClient();
-    const { data: post } = await supabase
+
+    // Use limit(1) instead of single() to handle duplicate slugs gracefully
+    const { data: posts } = await supabase
         .from("posts")
         .select("*")
         .eq("slug", slug)
-        .single();
+        .limit(1);
+
+    const post = posts?.[0];
 
     if (!post) {
         notFound();
@@ -94,7 +114,7 @@ export default async function BlogPostPage({ params }: PageProps) {
                             {post.author || "Infeara Team"}
                         </div>
                         <div className="flex items-center">
-                            <Calendar className="mr-2 h-4 w-4 text-orange-600" /> {format(new Date(post.published_at || post.created_at), "MMM d, yyyy")}
+                            <Calendar className="mr-2 h-4 w-4 text-orange-600" /> {format(getSafeDate(post.published_at, post.created_at), "MMM d, yyyy")}
                         </div>
                         <div className="flex items-center">
                             <Clock className="mr-2 h-4 w-4 text-orange-600" /> 5 min read
