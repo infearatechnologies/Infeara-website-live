@@ -21,8 +21,23 @@ const sora = Sora({
 });
 
 export const metadata: Metadata = {
+  metadataBase: new URL("https://infeara.com"),
+  alternates: {
+    canonical: "./",
+  },
   title: "Infeara: IT Support Services, Security Audit & Cloud Chennai",
   description: "Leading IT Support Services and Security Audit firm in Chennai. We provide expert Cloud Solutions and Business Consulting for your Digital Transformation.",
+  robots: {
+    index: true,
+    follow: true,
+    googleBot: {
+      index: true,
+      follow: true,
+      "max-video-preview": -1,
+      "max-image-preview": "large",
+      "max-snippet": -1,
+    },
+  },
   icons: {
     icon: "/infeara-logo-final.png",
   },
