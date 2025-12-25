@@ -1,13 +1,18 @@
 import { notFound } from "next/navigation";
-import { createClient as createStaticClient } from "@supabase/supabase-js";
+import { createClient } from "@supabase/supabase-js";
 import Link from "next/link";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import { Calendar, Clock, ArrowLeft, Share2, Linkedin, Twitter, ArrowRight } from "lucide-react";
 import { ReadingProgress } from "@/components/ui/reading-progress";
-import { createClient } from "@/lib/supabase/server";
 import { RichTextRenderer } from "@/components/rich-text-renderer";
 import { format } from "date-fns";
+
+// Create a single static client instance for this file
+const supabase = createClient(
+    process.env.NEXT_PUBLIC_SUPABASE_URL!,
+    process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY!
+);
 
 interface PageProps {
     params: Promise<{
@@ -16,10 +21,6 @@ interface PageProps {
 }
 
 export async function generateStaticParams() {
-    const supabase = createStaticClient(
-        process.env.NEXT_PUBLIC_SUPABASE_URL!,
-        process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY!
-    );
     const { data: posts } = await supabase
         .from("posts")
         .select("slug")
@@ -32,7 +33,6 @@ export async function generateStaticParams() {
 
 export async function generateMetadata({ params }: PageProps) {
     const { slug } = await params;
-    const supabase = await createClient();
 
     // Use limit(1) instead of single() to handle duplicate slugs gracefully
     const { data: posts } = await supabase
@@ -65,7 +65,6 @@ const getSafeDate = (dateStr: string | null | undefined, fallbackDate: string | 
 
 export default async function BlogPostPage({ params }: PageProps) {
     const { slug } = await params;
-    const supabase = await createClient();
 
     // Use limit(1) instead of single() to handle duplicate slugs gracefully
     const { data: posts } = await supabase
