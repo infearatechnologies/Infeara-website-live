@@ -46,20 +46,20 @@ export async function generateMetadata({ params }: PageProps) {
     if (!post) return { title: "Post Not Found" };
 
     return {
-        title: `${post.title} | Infeara Insights`,
-        description: post.excerpt,
+        title: `${post.title || "Blog Post"} | Infeara Insights`,
+        description: post.excerpt || "Read our latest insights.",
     };
 }
 
 // Helper for safe date parsing
-const getSafeDate = (dateStr: string | null | undefined, fallbackDate: string | null | undefined): Date => {
+const getSafeDate = (dateStr: string | null | undefined, fallbackDate: string | null | undefined): Date | null => {
     const d1 = dateStr ? new Date(dateStr) : null;
     if (d1 && !isNaN(d1.getTime())) return d1;
 
     const d2 = fallbackDate ? new Date(fallbackDate) : null;
     if (d2 && !isNaN(d2.getTime())) return d2;
 
-    return new Date(); // Fallback to now to prevent crash
+    return null;
 };
 
 
@@ -114,7 +114,14 @@ export default async function BlogPostPage({ params }: PageProps) {
                             {post.author || "Infeara Team"}
                         </div>
                         <div className="flex items-center">
-                            <Calendar className="mr-2 h-4 w-4 text-orange-600" /> {format(getSafeDate(post.published_at, post.created_at), "MMM d, yyyy")}
+                            {(() => {
+                                const date = getSafeDate(post.published_at, post.created_at);
+                                return date ? (
+                                    <>
+                                        <Calendar className="mr-2 h-4 w-4 text-orange-600" /> {format(date, "MMM d, yyyy")}
+                                    </>
+                                ) : null;
+                            })()}
                         </div>
                         <div className="flex items-center">
                             <Clock className="mr-2 h-4 w-4 text-orange-600" /> 5 min read
