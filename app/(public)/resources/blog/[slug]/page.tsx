@@ -14,6 +14,9 @@ const supabase = createClient(
     process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY!
 );
 
+// Force dynamic rendering to ensure fresh content on every request
+export const revalidate = 0;
+
 interface PageProps {
     params: Promise<{
         slug: string;
